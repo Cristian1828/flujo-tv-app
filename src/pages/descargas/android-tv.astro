@@ -1,0 +1,332 @@
+---
+import { site, waLink } from '../../config/site';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const waInstall = waLink('Hola, necesito ayuda para instalar Flujo TV en mi Android TV.');
+const waBuy     = waLink('Hola, quiero comprar Flujo TV para Android TV.');
+
+const pageTitle    = 'Cómo Instalar Flujo TV en Android TV | Tutorial y Manual Oficial 2026';
+const pageDesc     = 'Tutorial oficial paso a paso para instalar Flujo TV en Android TV. Video con cada paso, código Downloader incluido, activación asegurada y soporte garantizado 24/7. Compatible con TV Box y todos los dispositivos Android TV.';
+const pageKeywords = 'instalar Flujo TV Android TV, tutorial Flujo TV Android TV, manual instalacion Flujo TV, como instalar Flujo TV en Android TV, Flujo TV TV Box instalacion, codigo Downloader Flujo TV 481352, activar Flujo TV Android TV, guia oficial Flujo TV 2026, Flujo TV paso a paso, descargar Flujo TV Android';
+const canonical    = `${site.canonical}/descargas/android-tv`;
+
+// ── PASOS DE INSTALACIÓN ───────────────────────────────────────────
+const steps = [
+  {
+    n: '01',
+    title: 'Verifica que tu TV sea Android TV',
+    body: 'Ve a Ajustes → Acerca de → Información del sistema. Busca "Android TV" en el sistema operativo. Si aparece, eres compatible.',
+    tip: 'La mayoría de los televisores Sony, Sharp y TCL fabricados después de 2018 traen Android TV.',
+  },
+  {
+    n: '02',
+    title: 'Descarga la aplicación Downloader',
+    body: 'Abre la Play Store en tu Android TV › busca "Downloader by AFTVnews" › instálala. Es gratuita y oficial.',
+    tip: 'Asegúrate de que sea la app de AFTVnews (ícono naranja). Es la versión correcta.',
+  },
+  {
+    n: '03',
+    title: 'Habilita fuentes desconocidas',
+    body: 'Ve a Ajustes → Seguridad → Aplicaciones desconocidas → Downloader → Activa el permiso.',
+    tip: 'Sin este paso la instalación no podrá completarse.',
+  },
+  {
+    n: '04',
+    title: 'Abre Downloader e introduce el código',
+    body: 'Abre Downloader, selecciona "URL" e introduce el código: 481352. Presiona "Go" y espera que descargue el APK de Flujo TV.',
+    tip: 'Si el código no funciona, escríbenos por WhatsApp y te enviamos el enlace directo actualizado.',
+    highlight: true,
+    highlightLabel: 'Código Downloader',
+    highlightValue: '481352',
+  },
+  {
+    n: '05',
+    title: 'Instala el APK descargado',
+    body: 'Una vez descargado, selecciona "Instalar" cuando aparezca el aviso del sistema. Espera que finalice la instalación.',
+    tip: null,
+  },
+  {
+    n: '06',
+    title: 'Abre Flujo TV e inicia sesión',
+    body: 'Busca Flujo TV en tu lista de aplicaciones, ábrela e introduce las credenciales que te enviamos por WhatsApp al momento de la activación.',
+    tip: 'Si aún no tienes cuenta, contáctanos y te activamos en minutos.',
+  },
+];
+
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'Cómo instalar Flujo TV en Android TV',
+  description: pageDesc,
+  image: `${site.canonical}/logo_flujo.webp`,
+  totalTime: 'PT5M',
+  supply: [
+    { '@type': 'HowToSupply', name: 'Dispositivo con Android TV' },
+    { '@type': 'HowToSupply', name: 'Conexión a internet estable' },
+    { '@type': 'HowToSupply', name: 'Cuenta activa de Flujo TV' },
+  ],
+  tool: [
+    { '@type': 'HowToTool', name: 'Aplicación Downloader by AFTVnews' },
+  ],
+  step: steps.map((s, i) => ({
+    '@type': 'HowToStep',
+    position: i + 1,
+    name: s.title,
+    text: s.body,
+    url: `${canonical}#paso-${s.n}`,
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio',     item: site.canonical },
+    { '@type': 'ListItem', position: 2, name: 'Descargas',  item: `${site.canonical}/descargas/` },
+    { '@type': 'ListItem', position: 3, name: 'Android TV', item: canonical },
+  ],
+};
+---
+
+<Layout title={pageTitle} description={pageDesc} keywords={pageKeywords}>
+  <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} slot="head" />
+  <link rel="canonical" href={canonical} slot="head" />
+
+  <Header />
+
+  <main class="min-h-screen bg-gradient-to-b from-slate-50 to-white pt-24 pb-20">
+
+    <!-- ── Breadcrumb ───────────────────────────────────────────── -->
+    <nav aria-label="Ruta de navegación" class="mx-auto max-w-6xl px-4 mb-6">
+      <ol class="flex flex-wrap items-center gap-2 text-sm text-slate-900/55">
+        <li><a href="/" class="hover:text-slate-900 transition">Inicio</a></li>
+        <li aria-hidden="true"><span class="select-none">›</span></li>
+        <li><a href="/descargas/" class="hover:text-slate-900 transition">Descargas</a></li>
+        <li aria-hidden="true"><span class="select-none">›</span></li>
+        <li class="text-slate-900 font-medium" aria-current="page">Android TV</li>
+      </ol>
+    </nav>
+
+    <!-- ── Page hero ─────────────────────────────────────────────── -->
+    <section class="mx-auto max-w-6xl px-4 mb-14">
+      <div class="rounded-[2.5rem] border border-slate-900/8 bg-white shadow-soft overflow-hidden">
+        <!-- accent bar -->
+        <div class="h-1 w-full" style="background: linear-gradient(90deg, #f97316 0%, #0f172a 60%, #f97316 100%); opacity: 0.7;"></div>
+
+        <div class="px-8 py-10 sm:px-14 sm:py-12 flex flex-col lg:flex-row items-center gap-10">
+          <div class="flex-1 text-center lg:text-left">
+            <!-- device badge -->
+            <div class="inline-flex items-center gap-2 rounded-full border border-slate-900/10 bg-slate-50 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-slate-900/60 mb-5">
+              <span class="h-2 w-2 rounded-full bg-orange-400 inline-block animate-pulse"></span>
+              Tutorial &amp; Manual oficial · 2026
+            </div>
+
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.08]">
+              Instala <span class="text-orange-500">Flujo TV</span><br />
+              en Android TV
+            </h1>
+            <p class="mt-4 max-w-2xl text-slate-900/65 text-base sm:text-lg leading-relaxed">
+              Tutorial paso a paso para instalar Flujo TV en Android TV, TV Box y dispositivos Android. Video incluido, código Downloader y soporte garantizado.
+            </p>
+
+            <div class="mt-8 flex flex-wrap justify-center lg:justify-start gap-3">
+              <a
+                href="#pasos"
+                class="inline-flex items-center gap-2 rounded-xl bg-slate-900 hover:bg-slate-800 px-6 py-3 text-sm font-bold text-white transition shadow-lg shadow-slate-900/20"
+              >
+                <svg viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM9.555 7.168A1 1 0 0 0 8 8v4a1 1 0 0 0 1.555.832l3-2a1 1 0 0 0 0-1.664l-3-2Z" clip-rule="evenodd"/></svg>
+                Ver pasos de instalación
+              </a>
+              <a
+                href={waInstall}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 rounded-xl border border-slate-900/15 bg-slate-50 hover:bg-slate-100 px-6 py-3 text-sm font-semibold text-slate-900 transition"
+              >
+                Necesito ayuda →
+              </a>
+            </div>
+          </div>
+
+          <!-- quick specs -->
+          <div class="grid grid-cols-3 lg:grid-cols-1 gap-3 shrink-0 lg:min-w-[150px]">
+            {[
+              { v: '5 min', l: 'Duración' },
+              { v: 'Fácil', l: 'Nivel' },
+              { v: 'Gratis', l: 'Downloader' },
+            ].map(s => (
+              <div class="rounded-2xl border border-slate-900/8 bg-slate-50 px-4 py-3 text-center">
+                <div class="text-xl font-black text-slate-900">{s.v}</div>
+                <div class="text-[11px] uppercase tracking-wider text-slate-900/45 mt-0.5">{s.l}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Video ─────────────────────────────────────────────────── -->
+    <section class="mx-auto max-w-6xl px-4 mb-14">
+      <div class="rounded-[2rem] border border-slate-900/8 bg-white shadow-soft overflow-hidden">
+        <div class="px-6 py-5 border-b border-slate-900/5">
+          <h2 class="text-xl font-extrabold text-slate-900">Video tutorial</h2>
+          <p class="text-sm text-slate-900/55 mt-0.5">Mira el proceso completo antes de comenzar</p>
+        </div>
+
+        <!-- Video Wistia: Tutorial instalación Flujo TV en Android TV -->
+        <div class="w-full">
+          <Fragment set:html={`
+            <script src="https://fast.wistia.com/player.js" async><\/script>
+            <script src="https://fast.wistia.com/embed/rng7d90adc.js" async type="module"><\/script>
+            <style>wistia-player[media-id='rng7d90adc']:not(:defined){background:center/contain no-repeat url('https://fast.wistia.com/embed/medias/rng7d90adc/swatch');display:block;filter:blur(5px);padding-top:56.25%;}</style>
+            <wistia-player media-id="rng7d90adc" aspect="1.7777777777777777"></wistia-player>
+          `} />
+        </div>
+
+        <div class="px-6 py-4 bg-slate-50 border-t border-slate-900/5">
+          <p class="text-sm text-slate-900/80 font-medium">
+            <strong>Código Downloader:</strong>
+            <span class="ml-2 font-mono font-black text-slate-900 tracking-widest text-base">481352</span>
+            — Úsalo exactamente como se muestra en el video.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Steps ─────────────────────────────────────────────────── -->
+    <section id="pasos" class="mx-auto max-w-6xl px-4 mb-14" aria-labelledby="steps-heading">
+      <h2 id="steps-heading" class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mb-2">
+        Pasos de instalación
+      </h2>
+      <p class="text-slate-900/55 mb-10 max-w-2xl text-sm">
+        Sigue cada paso en orden. Si tienes dudas en alguno, escríbenos por WhatsApp.
+      </p>
+
+      <ol class="space-y-5">
+        {steps.map((s) => (
+          <li id={`paso-${s.n}`} class="relative flex gap-5 rounded-[2rem] border border-slate-900/8 bg-white shadow-soft p-6 sm:p-8">
+            <!-- step number -->
+            <div class="shrink-0 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#3DDC84]/10 border border-[#3DDC84]/20 font-black text-[#0f9d58] text-sm">
+              {s.n}
+            </div>
+
+            <div class="flex-1 min-w-0">
+              <h3 class="font-extrabold text-slate-900 text-base sm:text-lg leading-tight">{s.title}</h3>
+              <p class="mt-2 text-sm sm:text-base text-slate-900/65 leading-relaxed">{s.body}</p>
+
+              {s.highlight && (
+                <div class="mt-4 inline-flex items-center gap-3 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-3">
+                  <span class="text-xs font-bold text-amber-700 uppercase tracking-wide">{s.highlightLabel}:</span>
+                  <span class="font-mono font-black text-amber-900 text-xl tracking-[0.25em]">{s.highlightValue}</span>
+                </div>
+              )}
+
+              {s.tip && (
+                <div class="mt-3 flex gap-2 text-sm text-slate-900/50">
+                  <span class="shrink-0 text-[#3DDC84] font-bold">↳</span>
+                  <span>{s.tip}</span>
+                </div>
+              )}
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <!-- ── Requirements ──────────────────────────────────────────── -->
+    <section class="mx-auto max-w-6xl px-4 mb-12">
+      <div class="rounded-[2rem] border border-slate-900/8 bg-slate-50 px-8 py-8">
+        <h2 class="text-lg font-extrabold text-slate-900 mb-6">Requisitos previos</h2>
+        <div class="grid gap-4 sm:grid-cols-3">
+          {[
+            { icon: '📺', title: 'Android TV activo', desc: 'Tu televisor o dispositivo debe tener Android TV como sistema operativo (no Tizen, WebOS ni Roku).' },
+            { icon: '📶', title: 'Internet estable', desc: 'Mínimo 10 Mbps para HD. Para 4K te recomendamos 25+ Mbps. Recomendamos cable LAN cuando sea posible.' },
+            { icon: '👤', title: 'Cuenta activa', desc: 'Si aún no tienes cuenta, cómprala por WhatsApp. La activación es inmediata.' },
+          ].map(r => (
+            <div class="flex gap-4">
+              <span class="text-2xl shrink-0 mt-0.5">{r.icon}</span>
+              <div>
+                <div class="font-extrabold text-slate-900 text-sm">{r.title}</div>
+                <p class="mt-1 text-sm text-slate-900/55 leading-relaxed">{r.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA ───────────────────────────────────────────────────── -->
+    <section class="mx-auto max-w-6xl px-4 mb-12">
+      <div class="rounded-[2rem] bg-slate-900 px-8 py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div>
+          <p class="text-white/55 text-xs font-bold uppercase tracking-widest mb-1">¿Aún no tienes cuenta?</p>
+          <h2 class="text-xl sm:text-2xl font-black text-white">Activa Flujo TV hoy desde <span class="text-orange-400">$9 USD</span></h2>
+          <p class="mt-1 text-white/55 text-sm">Activación en minutos. Sin contratos. Soporte garantizado.</p>
+        </div>
+        <div class="flex flex-wrap gap-3 shrink-0">
+          <a
+            href={waBuy}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 rounded-xl bg-orange-500 hover:bg-orange-400 px-6 py-3 text-sm font-bold text-white transition"
+          >
+            Comprar ahora →
+          </a>
+          <a
+            href={waInstall}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/8 hover:bg-white/15 px-6 py-3 text-sm font-semibold text-white transition"
+          >
+            Necesito ayuda
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Related ───────────────────────────────────────────────── -->
+    <section class="mx-auto max-w-6xl px-4" aria-labelledby="related-heading">
+      <h2 id="related-heading" class="text-lg font-extrabold text-slate-900 mb-4">Otras guías de instalación</h2>
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <a
+          href="/descargas/google-tv"
+          class="flex items-center gap-4 rounded-2xl border border-slate-900/8 bg-white shadow-soft hover:shadow-md hover:-translate-y-0.5 p-5 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400"
+        >
+          <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-[#4285F4]/10 shrink-0">
+            <svg viewBox="0 0 24 24" class="h-6 w-6" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" fill="#4285F4"/>
+              <path d="M7 12h10" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="font-extrabold text-slate-900 text-sm">Google TV</div>
+            <div class="text-xs text-slate-900/50 mt-0.5">Chromecast, Sony, TCL, Hisense</div>
+          </div>
+          <svg viewBox="0 0 20 20" fill="none" class="h-4 w-4 text-slate-900/30 ml-auto shrink-0" stroke="currentColor" stroke-width="2"><path d="M7 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+
+        <a
+          href="/descargas/"
+          class="flex items-center gap-4 rounded-2xl border border-slate-900/8 bg-white shadow-soft hover:shadow-md hover:-translate-y-0.5 p-5 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400"
+        >
+          <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-900/5 shrink-0">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-slate-900/60" aria-hidden="true">
+              <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9ZM3 9V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3"/>
+            </svg>
+          </div>
+          <div>
+            <div class="font-extrabold text-slate-900 text-sm">Ver todas las guías</div>
+            <div class="text-xs text-slate-900/50 mt-0.5">Todos los dispositivos compatibles</div>
+          </div>
+          <svg viewBox="0 0 20 20" fill="none" class="h-4 w-4 text-slate-900/30 ml-auto shrink-0" stroke="currentColor" stroke-width="2"><path d="M7 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>

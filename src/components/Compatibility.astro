@@ -1,8 +1,8 @@
 ---
 import { site, waLink } from '../config/site';
 
-const installGuideHref = '#como-funciona';
-const howToInstallHref = '#como-funciona';
+const installGuideHref = '/descargas/';
+const howToInstallHref = '/descargas/';
 const mobileApkHref = site.download?.mobileApkHref || '/apk-movil.apk';
 const downloaderCode = site.download?.downloaderCode || '';
 
@@ -52,7 +52,7 @@ const waMobileHelpHref = waLink('Hola, necesito ayuda para instalar Flujo TV en 
           <div class="grid gap-2 text-sm text-slate-900/75">
             {[
               'Fire TV Stick (Todos)',
-              'Google TV / Chromecast',
+              'Google TV Stick',
               'Xiaomi Mi Box / Stick',
               'TV Box Android Genérico'
             ].map((item) => (
@@ -75,7 +75,7 @@ const waMobileHelpHref = waLink('Hola, necesito ayuda para instalar Flujo TV en 
               href={downloaderCode ? howToInstallHref : installGuideHref}
               class="inline-flex items-center justify-center rounded-2xl bg-slate-900 px-4 py-3 text-sm font-black text-white hover:bg-slate-800 transition"
             >
-              {downloaderCode ? '¿Cómo instalar?' : 'Ver Guía de Instalación'}
+              Ver guías de instalación
             </a>
 
             <p class="text-xs text-slate-900/60">

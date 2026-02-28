@@ -1,5 +1,7 @@
 ---
-import { site } from '../config/site';
+import { site, waLink } from '../config/site';
+
+const waFloatHref = waLink('\u00a1Hola! Estoy interesado en Flujo TV Premium \ud83c\udfac. \u00bFMe pueden dar informaci\u00f3n sobre los planes disponibles y c\u00f3mo activarlo para disfrutarlo desde ya?');
 
 interface Props {
   title?: string;
@@ -8,32 +10,18 @@ interface Props {
 }
 
 const {
-  title = 'Flujo TV Premium | Streaming Digital en Vivo para Latinoamérica',
-  description =
-    'Accede al entretenimiento más estable de la región. Sin contratos ni antenas. Compatible con Android, Fire Stick y TV Box. En Smart TV se requiere TV Box o Stick. Soporte 24/7 en español.',
-  keywords = [
-    'Flujo TV Premium',
-    'Televisión Digital por Internet',
-    'Streaming Multi-dispositivo',
-    'Entretenimiento Online Estable',
-    'App para Fire Stick',
-    'Configuración Android TV',
-    'Acceso TV Box',
-    'servicio disponible en Chile',
-    'servicio disponible en Colombia',
-    'servicio disponible en Ecuador',
-    'servicio disponible en Bolivia',
-    'servicio disponible en Perú',
-    'servicio disponible en México'
-  ].join(', ')
+  title = site.seo.title,
+  description = site.seo.description,
+  keywords = site.seo.keywords.join(', ')
 } = Astro.props;
 
 const canonicalUrl = new URL(Astro.url.pathname, site.canonical).toString();
-const ogImageUrl = new URL('/logo_flujo.webp', site.canonical).toString();
+const ogImageUrl = new URL(site.seo.ogImage, site.canonical).toString();
 const pageId = `${canonicalUrl}#webpage`;
 const orgId = `${site.canonical}#organization`;
 const websiteId = `${site.canonical}#website`;
 const serviceId = `${site.canonical}#service`;
+const productId = `${site.canonical}#product`;
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -50,7 +38,8 @@ const structuredData = {
           '@type': 'ContactPoint',
           contactType: 'customer support',
           email: site.supportEmail,
-          availableLanguage: ['es']
+          availableLanguage: ['es'],
+          areaServed: 'Worldwide'
         }
       ],
       sameAs: []
@@ -59,9 +48,9 @@ const structuredData = {
       '@type': 'WebSite',
       '@id': websiteId,
       url: site.canonical,
-      name: 'Flujo TV Premium',
+      name: 'Flujo TV Premium - Sitio Oficial',
       publisher: { '@id': orgId },
-      inLanguage: 'es-419'
+      inLanguage: 'es'
     },
     {
       '@type': 'WebPage',
@@ -71,23 +60,32 @@ const structuredData = {
       description,
       isPartOf: { '@id': websiteId },
       about: { '@id': serviceId },
-      inLanguage: 'es-419',
+      inLanguage: 'es',
       primaryImageOfPage: { '@type': 'ImageObject', url: ogImageUrl }
     },
     {
       '@type': 'Service',
       '@id': serviceId,
-      name: 'Streaming multi-dispositivo para Latinoamérica',
-      description: 'Televisión digital por internet y entretenimiento online estable con soporte en español para dispositivos compatibles.',
+      name: 'Flujo TV Premium - Streaming Latino Mundial',
+      description: 'Plataforma oficial de streaming con +3,000 canales en vivo, deportes, series y peliculas en Full HD y 4K. Disponible mundialmente para hispanohablantes.',
       provider: { '@id': orgId },
+      serviceType: 'Streaming de Television Digital',
       areaServed: [
-        { '@type': 'AdministrativeArea', name: 'Latinoamérica' },
-        { '@type': 'Country', name: 'Chile' },
+        { '@type': 'AdministrativeArea', name: 'Worldwide' },
+        { '@type': 'AdministrativeArea', name: 'Latinoamerica' },
+        { '@type': 'AdministrativeArea', name: 'Norteamerica' },
+        { '@type': 'AdministrativeArea', name: 'Europa' },
+        { '@type': 'Country', name: 'Estados Unidos' },
+        { '@type': 'Country', name: 'Mexico' },
         { '@type': 'Country', name: 'Colombia' },
+        { '@type': 'Country', name: 'Chile' },
+        { '@type': 'Country', name: 'Peru' },
         { '@type': 'Country', name: 'Ecuador' },
         { '@type': 'Country', name: 'Bolivia' },
-        { '@type': 'Country', name: 'Perú' },
-        { '@type': 'Country', name: 'México' }
+        { '@type': 'Country', name: 'Paraguay' },
+        { '@type': 'Country', name: 'Argentina' },
+        { '@type': 'Country', name: 'Canada' },
+        { '@type': 'Country', name: 'Espana' }
       ],
       offers: [
         { '@type': 'Offer', name: 'Plan 1 mes', price: 9, priceCurrency: 'USD', url: canonicalUrl, availability: 'https://schema.org/InStock' },
@@ -95,6 +93,21 @@ const structuredData = {
         { '@type': 'Offer', name: 'Plan 6 meses (incluye 1 mes extra)', price: 49, priceCurrency: 'USD', url: canonicalUrl, availability: 'https://schema.org/InStock' },
         { '@type': 'Offer', name: 'Plan 12 meses (incluye 2 meses extra)', price: 95, priceCurrency: 'USD', url: canonicalUrl, availability: 'https://schema.org/InStock' }
       ]
+    },
+    {
+      '@type': 'Product',
+      '@id': productId,
+      name: 'Flujo TV Premium',
+      description: 'Streaming premium con +3,000 canales latinos en vivo, deportes, series y peliculas en Full HD y 4K',
+      brand: { '@type': 'Brand', name: 'Flujo TV' },
+      offers: {
+        '@type': 'AggregateOffer',
+        lowPrice: 9,
+        highPrice: 95,
+        priceCurrency: 'USD',
+        offerCount: 4,
+        availability: 'https://schema.org/InStock'
+      }
     }
   ]
 };
@@ -103,7 +116,7 @@ const googleVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION as st
 ---
 
 <!doctype html>
-<html lang="es-419">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -119,12 +132,16 @@ const googleVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION as st
     {googleVerification && <meta name="google-site-verification" content={googleVerification} />}
 
     <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" href={canonicalUrl} hreflang="es" />
     <link rel="alternate" href={canonicalUrl} hreflang="es-419" />
+    <link rel="alternate" href={canonicalUrl} hreflang="es-US" />
+    <link rel="alternate" href={canonicalUrl} hreflang="es-MX" />
+    <link rel="alternate" href={canonicalUrl} hreflang="es-ES" />
     <link rel="alternate" href={canonicalUrl} hreflang="x-default" />
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_LA" />
-    <meta property="og:site_name" content="Flujo TV Premium" />
+    <meta property="og:site_name" content="Flujo TV Premium - Sitio Oficial" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
@@ -146,10 +163,27 @@ const googleVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION as st
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Commissioner:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+    <!-- Slot para meta/structured-data adicional por página -->
+    <slot name="head" />
   </head>
 
   <body class="bg-[#f7fbfc] text-slate-900 antialiased overflow-x-hidden">
     <slot />
+
+    <!-- Botón flotante de WhatsApp -->
+    <a
+      href={waFloatHref}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Contactar por WhatsApp"
+      title="\u00bfNecesitas ayuda? \u00a1Escríbenos por WhatsApp!"
+      class="fixed bottom-6 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-[0_4px_24px_rgba(37,211,102,0.45)] hover:bg-[#1ebe5d] hover:scale-110 active:scale-95 transition-all duration-200"
+    >
+      <svg viewBox="0 0 24 24" fill="white" class="h-7 w-7" aria-hidden="true">
+        <path d="M20.52 3.48A11.89 11.89 0 0 0 12.07 0C5.5 0 .16 5.33.16 11.9c0 2.1.55 4.16 1.6 5.97L0 24l6.31-1.65a11.9 11.9 0 0 0 5.76 1.47h.01c6.57 0 11.9-5.33 11.9-11.9 0-3.18-1.24-6.17-3.46-8.44Zm-8.45 18.3h-.01a9.87 9.87 0 0 1-5.04-1.38l-.36-.22-3.74.98 1-3.65-.24-.38a9.86 9.86 0 0 1-1.5-5.26c0-5.45 4.44-9.88 9.9-9.88a9.82 9.82 0 0 1 7 2.9 9.82 9.82 0 0 1 2.9 7c0 5.45-4.44 9.89-9.88 9.89Z"/>
+      </svg>
+    </a>
   </body>
 </html>
 
