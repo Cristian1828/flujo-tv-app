@@ -99,9 +99,10 @@ const calcSavingsPercent = (planPrice: number, months: number, oneMonthPrice: nu
             </ul>
 
             <a
-              href={href}
+              href={plan.id === '1m' ? 'https://www.paypal.com/ncp/payment/EBMGFA4S6ALWN' : plan.id === '3m' ? 'https://www.paypal.com/ncp/payment/DRDZ57GB83GAA' : plan.id === '6m' ? 'https://www.paypal.com/ncp/payment/PYVG9EZ448NZA' : 'https://www.paypal.com/ncp/payment/7AMC58FVAEFLW'}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
+              referrerpolicy="no-referrer"
               class="mt-6 inline-flex w-full items-center justify-center rounded-2xl px-4 py-3 font-black transition"
               data-plan-cta
             >
@@ -112,18 +113,24 @@ const calcSavingsPercent = (planPrice: number, months: number, oneMonthPrice: nu
       })}
     </div>
 
-    <p class="mt-6 text-center text-sm text-slate-900/70">
-      ¿Tienes dudas sobre qué plan elegir?{' '}
-      <a
-        href={helpHref}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="font-black text-slate-900 hover:underline underline-offset-4 decoration-2"
-      >
-        Escríbenos al WhatsApp
-      </a>{' '}
-      y te asesoramos al instante.
-    </p>
+    <div class="mt-9 rounded-[1.25rem] border border-slate-200 bg-white p-5 shadow-soft sm:p-6">
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p class="text-xs font-black uppercase tracking-[0.16em] text-emerald-600">Compra asistida</p>
+          <p class="mt-1 text-sm font-semibold text-slate-900 sm:text-base">
+            Si prefieres comprar por WhatsApp, un asesor te ayuda a elegir el plan y deja tu activacion lista.
+          </p>
+        </div>
+        <a
+          href={helpHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex shrink-0 items-center justify-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-black text-white transition hover:bg-slate-800"
+        >
+          Comprar por WhatsApp
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
