@@ -3,9 +3,6 @@ Allow: /
 Disallow: /_astro/
 Disallow: /404
 
-# Crawl rate
-Crawl-delay: 1
-
 # AI Training opt-out
 User-agent: GPTBot
 Disallow: /
