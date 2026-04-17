@@ -38,7 +38,7 @@ const faqs = [
   }
 ];
 
-const stripHtml = (value) => value.replace(/<[^>]*>/g, '');
+const stripHtml = (value: string) => value.replace(/<[^>]*>/g, '');
 
 const faqStructuredData = {
   '@context': 'https://schema.org',

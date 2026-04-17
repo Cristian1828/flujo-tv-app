@@ -93,7 +93,6 @@ const breadcrumbSchema = {
 <Layout title={pageTitle} description={pageDesc} keywords={pageKeywords}>
   <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} slot="head" />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} slot="head" />
-  <link rel="canonical" href={canonical} slot="head" />
 
   <Header />
 
@@ -242,7 +241,7 @@ const breadcrumbSchema = {
         <h2 class="text-lg font-extrabold text-slate-900 mb-6">Requisitos previos</h2>
         <div class="grid gap-4 sm:grid-cols-3">
           {[
-            { icon: '📺', title: 'Android TV activo', desc: 'Tu televisor o dispositivo debe tener Android TV como sistema operativo (no Tizen, WebOS ni Roku).' },
+            { icon: '📺', title: 'Android TV activo', desc: 'Tu televisor o dispositivo debe tener Android TV como sistema operativo (no Tizen ni WebOS).' },
             { icon: '📶', title: 'Internet estable', desc: 'Mínimo 10 Mbps para HD. Para 4K te recomendamos 25+ Mbps. Recomendamos cable LAN cuando sea posible.' },
             { icon: '👤', title: 'Cuenta activa', desc: 'Si aún no tienes cuenta, cómprala por WhatsApp. La activación es inmediata.' },
           ].map(r => (

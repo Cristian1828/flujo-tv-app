@@ -39,7 +39,7 @@ const calcSavingsPercent = (planPrice: number, months: number, oneMonthPrice: nu
     <div class="mt-10 grid gap-4 lg:grid-cols-4">
       {site.pricing.plans.map((plan) => {
         const href = waLink(`${baseMessage} Me interesa el plan ${plan.name} (${site.pricing.currencyCode} ${plan.price}).`);
-        const isFeatured = Boolean(plan.highlight);
+        const isFeatured = 'highlight' in plan ? Boolean(plan.highlight) : false;
 
         const oneMonthPlan = site.pricing.plans.find((p) => p.id === '1m');
         const months = getDeliveredMonths(plan.id);
