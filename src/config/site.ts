@@ -5,12 +5,12 @@ export const site = {
     name: 'Flujo TV',
     premiumLabel: 'Premium',
     tagline: 'Streaming premium con +3,000 canales en vivo para toda la comunidad hispanohablante',
-    description: 'Plataforma oficial de streaming con +3,000 canales en vivo, deportes, series y películas en Full HD y 4K. Descarga el APK, usa el código Downloader 7132299, sigue la guía de instalación y disfruta en Android TV, Google TV, Chromecast, Fire Stick o celular. Soporte técnico 24/7.'
+    description: 'Plataforma oficial de streaming con +3,000 canales en vivo, deportes, series y películas en Full HD y 4K. Descarga el APK, usa el código Downloader 9249124, sigue la guía de instalación y disfruta en Android TV, Google TV, Chromecast, Fire Stick o celular. Soporte técnico 24/7. Nueva versión actualizada 8.4.3.'
   },
   // SEO optimizado para Google Ads SEM y posicionamiento mundial
   seo: {
     title: 'Flujo TV Oficial 2026 | Descarga APK, Instalación, Código Downloader y Soporte Premium',
-    description: 'Descarga e instala Flujo TV Premium en Android TV, Google TV, Chromecast, Fire Stick y celular. Código Downloader 7132299, tutoriales en video paso a paso, APK oficial. Streaming Full HD/4K con +3,000 canales. Activación inmediata y soporte técnico 24/7.',
+    description: 'Descarga e instala Flujo TV Premium en Android TV, Google TV, Chromecast, Fire Stick y celular. Código Downloader 9249124, tutoriales en video paso a paso, APK oficial. Streaming Full HD/4K con +3,000 canales. Activación inmediata y soporte técnico 24/7. Nueva versión actualizada 8.4.3.',
     keywords: [
       // ── Marca (alta prioridad SEM) ──
       'Flujo TV', 'Flujo TV Premium', 'Flujo TV Oficial', 'Flujo TV 2026',
@@ -26,8 +26,8 @@ export const site = {
       'Flujo TV apk para tablet', 'Flujo TV apk para TV Box',
 
       // ── Código Downloader (consultas exactas) ──
-      'codigo Downloader Flujo TV', 'codigo downloader 7132299',
-      '7132299', '7132299 Flujo TV', '7132299 downloader code',
+      'codigo Downloader Flujo TV', 'codigo downloader 9249124',
+      '9249124', '9249124 Flujo TV', '9249124 downloader code',
       'codigo para descargar Flujo TV', 'codigo descarga Flujo TV',
       'numero Downloader Flujo TV', 'Flujo TV Downloader code 2026',
       'downloader Flujo TV codigo actualizado',
@@ -102,20 +102,23 @@ export const site = {
       'comprar paneles flujo tv', 'negocio flujo tv',
 
       // ── Promociones y Versiones ──
-      'ultima version de flujo tv', 'flujo tv version 8.4.2', 'flujo tv 8.4.2',
-      'descargar flujo tv 8.4.2', 'actualizar flujo tv', 'actualizacion flujo tv',
+      'ultima version de flujo tv', 'flujo tv version 8.4.3', 'flujo tv 8.4.3',
+      'descargar flujo tv 8.4.3', 'actualizar flujo tv', 'actualizacion flujo tv',
       'flujo tv comunidad', 'foro flujo tv', 'ayuda foro flujo tv',
       'flujo tv barato', 'promociones flujo tv', 'descuentos flujo tv',
       'oferta flujo tv', 'flujo tv economico'
-    ],
+    ,
+            // --- Nueva Versión SEO ---
+            'nueva version', 'version actualizada', 'version 8.4.3', 'nueva version actualizada 8.4.3'
+        ],
     ogImage: '/logo_flujo.webp',
     twitterHandle: '@flujotv'
   },
   supportEmail: 'soporte@flujooficial.com',
   whatsappNumber: '51914326729',
   download: {
-    downloaderCode: '7132299',
-    mobileApkHref: 'https://github.com/Cristian1828/apk-flujoTV/releases/download/v1.0/flujo-premium.apk'
+    downloaderCode: '9249124',
+    mobileApkHref: 'https://github.com/Cristian1828/apk-flujoTV/releases/download/v2.0/flujo_mobile_v8.4.3.apk'
   },
   pricing: {
     currencyCode: 'USD',
