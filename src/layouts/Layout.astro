@@ -118,7 +118,7 @@ const googleVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION as st
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es-419">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -161,6 +161,9 @@ const googleVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION as st
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Preload LCP -->
+    <link rel="preload" as="image" href="/hero-ecuador.webp" fetchpriority="high" />
 
     <link rel="icon" href="/logo_flujo.webp" type="image/webp" />
     <link rel="apple-touch-icon" href="/logo_flujo.webp" />

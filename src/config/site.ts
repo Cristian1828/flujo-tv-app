@@ -9,8 +9,8 @@ export const site = {
   },
   // SEO optimizado para Google Ads SEM y posicionamiento mundial
   seo: {
-    title: 'Flujo TV Oficial 2026 | Descarga APK, Instalación, Código Downloader y Soporte Premium',
-    description: 'Descarga e instala Flujo TV Premium en Android TV, Google TV, Chromecast, Fire Stick y celular. Código Downloader 9249124, tutoriales en video paso a paso, APK oficial. Streaming Full HD/4K con +3,000 canales. Activación inmediata y soporte técnico 24/7. Nueva versión actualizada 8.4.3.',
+    title: 'Descargar Flujo TV APK · Código 9249124 · Instala Gratis',
+    description: 'Descarga Flujo TV APK oficial gratis. Código Downloader 9249124. Instala en TV Box, Fire Stick, Google TV y Android. +3,000 canales. Soporte 24/7.',
     keywords: [
       // ── Marca (alta prioridad SEM) ──
       'Flujo TV', 'Flujo TV Premium', 'Flujo TV Oficial', 'Flujo TV 2026',
